@@ -1,0 +1,119 @@
+<style>
+  #header {
+    border-bottom: 1px solid #e20202;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center; /* Cambiado a 'center' para centrar los elementos */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+
+  .btn-container {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .btn-login {
+    background: none;
+    color: var(--primary-color);
+  }
+
+  .btn-signup {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+  }
+
+  .btn-signup:hover {
+    background-color: var(--primary-dark-color);
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark);
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  /* Estilos para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+  }
+</style>
+
+<header>
+<nav>
+  <!-- Enlaces de navegación -->
+  <div class="nav-links">
+    <a href="#">Inicio</a>
+    <a href="#">Proyecto</a>
+    <a href="#">Equipo</a>
+    <a href="#">Contacto</a>
+  </div>
+</nav>
+
+<!-- Menú para móviles -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#">Inicio</a>
+    <a href="#">Proyecto</a>
+    <a href="#">Equipo</a>
+    <a href="#">Contacto</a>
+</div>
+</header>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuToggle.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+});
+</script>

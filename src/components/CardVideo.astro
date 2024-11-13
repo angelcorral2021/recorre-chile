@@ -1,0 +1,183 @@
+---
+interface Props {
+    title: string;
+    body: string;
+    href: string;
+    tags: string[];
+    imageUrl: string;
+    videoUrl?: string; // Asegúrate de que esta propiedad esté definida como opcional
+    facebookUrl: string;
+    twitterUrl: string;
+    instagramUrl: string;
+    whatsappUrl: string;
+}
+
+const {
+    title,
+    body,
+    href,
+    tags,
+    imageUrl,
+    videoUrl,
+    facebookUrl,
+    twitterUrl,
+    instagramUrl,
+    whatsappUrl,
+} = Astro.props;
+---
+
+<li class="business-card">
+    <a href={href} target="_blank" class="card-link">
+        {
+            videoUrl ? (
+                <video class="card-video" autoplay loop muted>
+                    <source src={videoUrl} type="video/mp4" />
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            ) : (
+                <img src={imageUrl} alt={title} class="card-image" />
+            )
+        }
+    </a>
+    <div class="card-content">
+        <h2>{title}</h2>
+        <p>{body}</p>
+        <div class="tags">
+            {tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+        <div class="social-buttons">
+            {
+                facebookUrl && (
+                    <a href={facebookUrl} target="_blank" aria-label="Facebook">
+                        <img
+                            src="/icons/facebook.svg"
+                            alt="Facebook"
+                            class="social-icon"
+                        />
+                    </a>
+                )
+            }
+            {
+                whatsappUrl && (
+                    <a href={whatsappUrl} target="_blank" aria-label="WhatsApp">
+                        <img
+                            src="/icons/whatsapp.svg"
+                            alt="WhatsApp"
+                            class="social-icon"
+                        />
+                    </a>
+                )
+            }
+            {
+                instagramUrl && (
+                    <a
+                        href={instagramUrl}
+                        target="_blank"
+                        aria-label="Instagram"
+                    >
+                        <img
+                            src="/icons/instagram.svg"
+                            alt="Instagram"
+                            class="social-icon"
+                        />
+                    </a>
+                )
+            }
+        </div>
+    </div>
+</li>
+
+<style>
+    .business-card {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #2e3b4e;
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .business-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5); /* Sombra roja en hover */
+    }
+
+    .card-link {
+        text-decoration: none;
+        color: white;
+    }
+
+    .card-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .card-image:hover {
+        transform: scale(1.1);
+    }
+
+    .card-video {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 1rem;
+        background-color: #1f273b;
+    }
+
+    h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: #fff;
+    }
+
+    p {
+        margin: 0.5rem 0 1rem;
+        color: #ccc;
+    }
+
+    .tags {
+        margin: 0.5rem 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        background-color: #444;
+        color: #fff;
+        padding: 0.3rem 0.6rem;
+        border-radius: 12px;
+        font-size: 0.875rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .social-buttons {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 1rem;
+    }
+
+    .social-buttons a {
+        margin-right: 10px;
+        color: #fff;
+    }
+
+    .social-buttons img {
+        width: 24px; /* Ajusta el tamaño del icono */
+        height: 24px; /* Ajusta el tamaño del icono */
+        transition: transform 0.3s ease;
+    }
+
+    .social-buttons img:hover {
+        transform: scale(1.1);
+    }
+</style>

@@ -1,0 +1,131 @@
+---
+// Definición de la interfaz del componente CardNegocios
+interface Props {
+	title: string;
+	body: string;
+	href: string;
+	tags: string[];
+	imageUrl: string;
+	facebookUrl: string;
+	twitterUrl: string;
+	instagramUrl: string;
+}
+
+const {
+	href,
+	title,
+	body,
+	tags,
+	imageUrl,
+	facebookUrl,
+	twitterUrl,
+	instagramUrl,
+} = Astro.props;
+---
+
+<li class="business-card">
+	<a href={href} target="_blank">
+		<img src={imageUrl} alt={title} class="card-image" />
+	</a>
+	<div class="card-content">
+		<h2>{title}<span>&rarr;</span></h2>
+		<p>{body}</p>
+
+		<!-- Mostrar múltiples tags -->
+		<div class="tags">
+			{tags.map((tag) => <span class="tag">{tag}</span>)}
+		</div>
+
+		<!-- Botones de redes sociales -->
+		<div class="social-buttons">
+			<a href={facebookUrl} target="_blank" aria-label="Facebook">
+				<img src="/icons/facebook.svg" alt="Facebook" />
+			</a>
+			<a href={twitterUrl} target="_blank" aria-label="Twitter">
+				<img src="/icons/whatsapp.svg" alt="Twitter" />
+			</a>
+			<a href={instagramUrl} target="_blank" aria-label="Instagram">
+				<img src="/icons/instagram.svg" alt="Instagram" />
+			</a>
+		</div>
+	</div>
+</li>
+
+<style>
+	.business-card {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		padding: 1px;
+		background-color: #48515a;
+		border-radius: 7px;
+		transition:
+			transform 0.3s ease-in-out,
+			box-shadow 0.3s ease-in-out;
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+	}
+	.business-card:hover {
+		transform: scale(1.05);
+		box-shadow: 0 4px 15px rgba(170, 23, 23, 0.3);
+	}
+	.business-card > a {
+		display: block;
+		width: 100%;
+		text-decoration: none; /* Elimina el subrayado */
+		color: white !important; /* Asegura que el texto sea blanco */
+	}
+	.card-image {
+		width: 100%;
+		height: auto;
+		border-radius: 7px 7px 0 0;
+	}
+	.card-content {
+		padding: 1rem;
+		background-color: #23262d;
+		color: white; /* Asegura que el texto en la tarjeta sea blanco */
+	}
+	h2 {
+		margin: 0;
+		font-size: 1.25rem;
+		color: white !important; /* Asegura que el título sea blanco */
+		text-decoration: none; /* Elimina cualquier subrayado */
+	}
+	p {
+		margin-top: 0.5rem;
+		margin-bottom: 0;
+		color: white; /* Asegura que el cuerpo del texto sea blanco */
+		text-decoration: none; /* Asegura que no haya subrayado */
+	}
+	.tags {
+		margin-top: 0.5rem;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.tag {
+		background-color: #444;
+		color: #fff;
+		padding: 0.3rem 0.6rem;
+		border-radius: 12px;
+		font-size: 0.875rem;
+		margin-right: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+	.social-buttons {
+		display: flex;
+		justify-content: start;
+		margin-top: 1rem;
+	}
+	.social-buttons a {
+		margin-right: 10px;
+		color: white !important; /* Asegura que los íconos de redes sociales sean blancos */
+		text-decoration: none; /* Asegura que no haya subrayado */
+	}
+	.social-buttons i {
+		font-size: 24px;
+		transition: color 0.3s ease;
+	}
+	.social-buttons i:hover {
+		color: #ff6347;
+	}
+</style>
