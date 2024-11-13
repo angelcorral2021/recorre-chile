@@ -1,0 +1,96 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Explora Ohiggins.">
+    <main>
+        <Header />
+
+        <h1>Recorre <span class="text-gradient"> Chile</span></h1>
+        <p class="instructions">
+            Bienvenido a Recorre Chile, la Web dedicada al turismo emprendedor
+            de nuestro pais.
+        </p>
+        <p class="instructions">
+            El proyecto consiste en desarrollar
+            una plataforma web que reúna y promueva ofertas turísticas de
+            emprendedores locales en Chile. Este sitio tiene como objetivo
+            principal visibilizar los emprendimientos turísticos de pequeñas y
+            medianas empresas, fomentando el turismo sostenible y la economía
+            local. La plataforma estará organizada por zonas geográficas y tipos
+            de emprendimiento, lo cual permitirá a los usuarios explorar
+            fácilmente las opciones de acuerdo con su ubicación o interés. Por
+            ejemplo, los usuarios podrán encontrar actividades como rutas de
+            senderismo, visitas a viñedos, tours históricos, alojamientos únicos
+            y experiencias gastronómicas. La web incluirá descripciones
+            detalladas de cada oferta, fotos, ubicaciones y reseñas, ofreciendo
+            una herramienta integral para descubrir las diversas experiencias
+            que ofrecen los emprendedores chilenos en distintas partes del país.
+        </p>
+
+        <Footer />
+    </main>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+        padding: 2rem;
+        width: 1100px;
+        max-width: calc(100% - 2rem);
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    .astro-a {
+        position: absolute;
+        top: -32px;
+        left: 50%;
+        transform: translatex(-50%);
+        width: 220px;
+        height: auto;
+        z-index: -1;
+    }
+    h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+    .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 300%;
+        background-position: 0%;
+    }
+    .instructions {
+        margin-bottom: 2rem;
+        border: 1px solid rgba(var(--accent-light), 25%);
+        background-color: #1a1a1a;
+        padding: 1.5rem;
+        text-align: center; /* Alinea el texto horizontalmente al centro */
+    }
+
+    .instructions_2 {
+        margin-bottom: 2rem;
+        border: 1px solid rgba(var(--accent-light), 25%);
+        background-color: #1a1a1a;
+        padding: 0.5rem;
+        text-align: center; /* Alinea el texto horizontalmente al centro */
+    }
+
+    .instructions strong {
+        color: rgb(var(--accent-light));
+    }
+    .link-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+        gap: 2rem;
+        padding: 0;
+    }
+</style>
