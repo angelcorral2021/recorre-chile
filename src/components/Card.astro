@@ -26,12 +26,14 @@ const {
 ---
 
 <li class="tourism-card">
+	<!-- <a href={href} target="_blank" class="card-link"> -->
 	<a href={href} target="_blank" class="card-link">
 		<img src={imageUrl} alt={title} class="card-image" />
 	</a>
-		<div class="card-content">
-			<h2>{title}</h2>
-			<p>{body}</p>
+	<div class="card-content">
+		<h2>{title}</h2>
+		<p>{body}</p>
+		<div class="content-bottom">
 			<div class="tags">
 				{tags.map((tag) => <span class="tag">{tag}</span>)}
 			</div>
@@ -46,21 +48,6 @@ const {
 							<img
 								src="/icons/facebook.svg"
 								alt="Facebook"
-								class="social-icon"
-							/>
-						</a>
-					)
-				}
-				{
-					whatsappUrl && (
-						<a
-							href={whatsappUrl}
-							target="_blank"
-							aria-label="WhatsApp"
-						>
-							<img
-								src="/icons/whatsapp.svg"
-								alt="WhatsApp"
 								class="social-icon"
 							/>
 						</a>
@@ -83,10 +70,11 @@ const {
 				}
 			</div>
 		</div>
-	
+	</div>
 </li>
 
 <style>
+	
 	.tourism-card {
 		list-style: none;
 		display: flex;
@@ -94,7 +82,6 @@ const {
 		border-radius: 10px;
 		overflow: hidden;
 		background-color: #1a1a1a;
-		
 
 		transition:
 			transform 0.3s ease,
@@ -103,7 +90,6 @@ const {
 	}
 
 	
-
 	.tourism-card:hover {
 		transform: scale(1.05);
 		box-shadow: 0 4px 15px rgba(231, 130, 14, 0.767); /* Sombra roja */
@@ -115,21 +101,25 @@ const {
 	}
 
 	.card-image {
-		width: 100%;
-		height: auto;
-		object-fit: cover;
+		width: 100%; /* Ajusta al ancho del contenedor */
+		height: 200px; /* Altura fija para las imágenes */
+		object-fit: cover; /* Recorta la imagen para que se ajuste sin deformarse */
 		transition: transform 0.3s ease;
 	}
 
 	.card-image:hover {
 		transform: scale(1.1);
 	}
+	
+
 
 	.card-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between; /* Coloca los elementos al inicio y final */
 		padding: 1rem;
-		background-color: #1a1a1a;
+		flex-grow: 1; /* Permite que este contenedor llene el espacio disponible */
 	}
-
 	h2 {
 		margin: 0;
 		font-size: 1.5rem;
@@ -140,6 +130,12 @@ const {
 		margin: 0.5rem 0 1rem;
 		color: #ccc;
 	}
+
+	.content-bottom {
+		margin-top: auto; /* Empuja este contenedor hacia la parte inferior */
+	}
+
+	
 
 	.tags {
 		margin: 0.5rem 0;
@@ -155,7 +151,7 @@ const {
 		font-size: 0.875rem;
 		margin-right: 0.5rem;
 		margin-bottom: 0.5rem;
-	}
+	} 
 
 	.social-buttons {
 		display: flex;
