@@ -34,9 +34,10 @@ const {
 		<h2>{title}</h2>
 		<p>{body}</p>
 		<div class="content-bottom">
-			<div class="tags">
+			<!-- <div class="tags">
 				{tags.map((tag) => <span class="tag">{tag}</span>)}
-			</div>
+			</div>-->
+			
 			<div class="social-buttons">
 				{
 					facebookUrl && (
@@ -46,7 +47,7 @@ const {
 							aria-label="Facebook"
 						>
 							<img
-								src="/icons/facebook.svg"
+								src="/icons/face4.svg"
 								alt="Facebook"
 								class="social-icon"
 							/>
@@ -61,7 +62,7 @@ const {
 							aria-label="Instagram"
 						>
 							<img
-								src="/icons/instagram.svg"
+								src="/icons/insta3.svg"
 								alt="Instagram"
 								class="social-icon"
 							/>
@@ -76,24 +77,23 @@ const {
 <style>
 	
 	.tourism-card {
-		list-style: none;
-		display: flex;
-		flex-direction: column;
-		border-radius: 10px;
-		overflow: hidden;
-		background-color: #1a1a1a;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    transition: 
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	margin-top: 2rem;
+}
 
-		transition:
-			transform 0.3s ease,
-			box-shadow 0.3s ease;
-		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-	}
-
-	
-	.tourism-card:hover {
-		transform: scale(1.05);
-		box-shadow: 0 4px 15px rgba(231, 130, 14, 0.767); /* Sombra roja */
-	}
+.tourism-card:hover {
+    transform: translateX(10px); /* Mueve la tarjeta 10px a la derecha */
+    box-shadow: 0 4px 15px rgba(231, 130, 14, 0.767); /* Sombra más pronunciada */
+}
 
 	.card-link {
 		text-decoration: none;
@@ -127,17 +127,19 @@ const {
 	}
 
 	p {
-		margin: 0.5rem 0 1rem;
+		margin: 0.5rem 0 0.5rem;
 		color: #ccc;
+		font-size: 1.1rem;
 	}
 
 	.content-bottom {
 		margin-top: auto; /* Empuja este contenedor hacia la parte inferior */
+		margin-left: 6.6rem;
 	}
 
 	
 
-	.tags {
+	/*.tags {
 		margin: 0.5rem 0;
 		display: flex;
 		flex-wrap: wrap;
@@ -152,25 +154,42 @@ const {
 		margin-right: 0.5rem;
 		margin-bottom: 0.5rem;
 	} 
-
+		*/
 	.social-buttons {
-		display: flex;
-		justify-content: flex-start;
-		margin-top: 1rem;
-	}
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 1.5rem;
+        gap: 1.5rem; /* Espaciado uniforme entre botones */
+    }
 
-	.social-buttons a {
-		margin-right: 10px;
-		color: #fff;
-	}
+    .social-buttons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        background-color: #2c2c2c; /* Fondo oscuro para el botón */
+        color: #fff; /* Color del icono */
+        border-radius: 8px; /* Bordes ligeramente redondeados */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+        transition: all 0.3s ease;
+		
+    }
 
-	.social-icon {
-		width: 24px; /* Ajusta el tamaño del icono */
-		height: 24px; /* Ajusta el tamaño del icono */
-		transition: transform 0.3s ease;
-	}
+    .social-buttons a:hover {
+        background-color: #946f09; /* Color de fondo al pasar el mouse */
+        color: #fff; /* Mantener el color del icono */
+        box-shadow: 0 8px 12px rgba(226, 2, 2, 0.3); /* Sombra más pronunciada */
+        transform: translateY(-3px); /* Efecto de elevación */
+    }
 
-	.social-icon:hover {
-		transform: scale(1.1);
-	}
+    .social-icon {
+        width: 33px; /* Tamaño del icono */
+        height: 35px;
+        transition: transform 0.4s ease;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.2); /* Efecto sutil de zoom */
+    }
 </style>

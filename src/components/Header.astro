@@ -1,3 +1,26 @@
+<header>
+  <nav>
+    <!-- Enlaces de navegación -->
+    <div class="nav-links">
+      <a href="/">Inicio</a>
+      <a href="/proyecto">Proyecto</a>
+      <a href="/equipo">Equipo</a>
+      <a href="/contacto">Contacto</a>
+    </div>
+    
+    <!-- Menú para móviles (icono hamburguesa) -->
+    <div class="menu-toggle" id="menuToggle">&#9776;</div> <!-- Icono de hamburguesa -->
+  </nav>
+
+  <!-- Menú móvil -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Inicio</a>
+    <a href="/proyecto">Proyecto</a>
+    <a href="/equipo">Equipo</a>
+    <a href="/contacto">Contacto</a>
+  </div>
+</header>
+
 <style>
   #header {
     border-bottom: 1px solid #e20202;
@@ -5,15 +28,19 @@
 
   nav {
     display: flex;
-    justify-content: center; /* Cambiado a 'center' para centrar los elementos */
+    justify-content: center; /* Centrar los elementos del nav */
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 1rem;
+    width: 100%; /* Asegura que el nav ocupe todo el ancho disponible */
   }
 
   .nav-links {
     display: flex;
     gap: 1.5rem;
+    justify-content: center; /* Centrar los enlaces en el contenedor */
+    width: 100%; /* Asegura que los enlaces ocupen el 100% del ancho disponible */
   }
 
   .nav-links a {
@@ -57,7 +84,7 @@
 
   .menu-toggle {
     display: none;
-    font-size: 1.5rem;
+    font-size: 2rem;  /* Aumenté el tamaño del icono */
     cursor: pointer;
     color: var(--text-dark);
   }
@@ -66,10 +93,18 @@
     display: none;
   }
 
+  .mobile-menu a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+  }
+
   /* Estilos para pantallas pequeñas */
   @media (max-width: 768px) {
     .nav-links {
-      display: none;
+      display: none; /* Esconde los enlaces en pantallas pequeñas */
     }
 
     .menu-toggle {
@@ -89,31 +124,11 @@
   }
 </style>
 
-<header>
-<nav>
-  <!-- Enlaces de navegación -->
-  <div class="nav-links">
-    <a href="/">Inicio</a>
-    <a href="/proyecto">Proyecto</a>
-    <a href="/equipo">Equipo</a>
-    <a href="/contacto">Contacto</a>
-  </div>
-</nav>
-
-<!-- Menú para móviles -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="/">Inici0</a>
-    <a href="/proyecto">Proyecto</a>
-    <a href="/equipo">Equipo</a>
-    <a href="/contacto">Contacto</a>
-</div>
-</header>
-
 <script>
-const menuToggle = document.getElementById('menuToggle');
-const mobileMenu = document.getElementById('mobileMenu');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
 
-menuToggle.addEventListener('click', () => {
-  mobileMenu.classList.toggle('active');
-});
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+  });
 </script>

@@ -19,6 +19,8 @@ import Footer from "../components/Footer.astro";
 			Zona Habilitada VI Region del libertador Bernardo O'higgins
 		</p>
 
+		<img class="mapa" src="/img/Region2.png" alt="">
+
 		<ul role="list" class="link-card-grid">
 			<Card
 				title="Reserva Tipaume"
@@ -54,7 +56,7 @@ import Footer from "../components/Footer.astro";
 				whatsappUrl="https://web.whatsapp.com/"
 			/>
 			<Card
-				title="Reserva Nacional Río Los Cipreses"
+				title="Reserva Río Los Cipreses"
 				body="Reserva nacional Rio cipreses es un parque nacional que esta ubicado a 45 minutos desde Rancagua pasando por Coya hacia la cordillera de los andes."
 				href="https://www.conaf.cl/parque_nacionales/reserva-nacional-rio-de-los-cipreses/"
 				tags={["Aventura", "Historia", "Cultura"]}
@@ -95,8 +97,8 @@ import Footer from "../components/Footer.astro";
 <style>
 	main {
 		margin: auto;
-		padding: 2rem;
-		width: 1100px;
+		padding: 2.5rem;
+		width: 1400px;
 		max-width: calc(100% - 2rem);
 		color: white;
 		font-size: 20px;
@@ -112,7 +114,7 @@ import Footer from "../components/Footer.astro";
 		z-index: -1;
 	}
 	h1 {
-		font-size: 4rem;
+		font-size: 5rem;
 		font-weight: 700;
 		line-height: 1;
 		text-align: center;
@@ -146,8 +148,42 @@ import Footer from "../components/Footer.astro";
 	}
 	.link-card-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
+    grid-template-columns: repeat(4, 1fr); /* Crea cuatro columnas iguales */
+    gap: 2rem; /* Espaciado entre las tarjetas */
+    padding: 0;
+    list-style: none;
+	margin-top: 4rem
 	}
+
+	@media (max-width: 1024px) {
+    .link-card-grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos tarjetas por fila en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .link-card-grid {
+        grid-template-columns: repeat(1, 1fr); /* Una tarjeta por fila en pantallas pequeñas */
+    }
+}
+
+.mapa {
+    width: 60%;  /* Hace que la imagen ocupe todo el ancho del contenedor */
+    max-width: 900px;  /* Limita el tamaño máximo de la imagen a 1200px */
+    height: auto;  /* Mantiene la proporción de la imagen */
+    object-fit: cover;  /* Asegura que la imagen se recorte adecuadamente si es necesario */
+    border-radius: 8px;  /* Agrega bordes redondeados a la imagen */
+   
+    margin: 1rem auto;  /* Centra la imagen y le da un margen superior e inferior */
+    display: block;  /* Hace que la imagen se comporte como un bloque */
+}
+
+@media (max-width: 768px) {
+    .mapa {
+        width: 100%;  /* Hace que la imagen ocupe todo el ancho en pantallas pequeñas */
+        max-width: 100%;  /* Asegura que no exceda el ancho de la pantalla */
+        height: auto;  /* Mantiene la proporción de la imagen */
+    }
+}
+
 </style>

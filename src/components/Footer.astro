@@ -2,69 +2,50 @@
     .footer {
         background-color: #1a1a1a;
         color: #ffffff;
-        padding: 0rem 25rem;
+        padding: 1rem 2rem; /* Ajustar padding para tamaños pequeños */
         text-align: center;
         margin-top: 5%;
         border: 1px solid rgba(var(--accent-light), 25%);
     }
 
-    
-
     .footer-content {
         max-width: 1100px;
-        margin:  auto;
+        margin: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
-    }
-
-    .footer-links,
-    .social-links {
-        display: flex;
-        gap: 1.5rem;
-        flex-wrap: wrap;
-    }
-
-    .footer-links a,
-    .social-links a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
-
-    .footer-links a:hover,
-    .social-links a:hover {
-        color: #e20202;
-    }
-
-    .social-links a {
-        font-size: 1.25rem;
+        text-align: center; /* Asegura que el contenido interno esté centrado */
     }
 
     .footer-rights {
         font-size: 0.825rem;
         color: #aaaaaa;
+        text-align: center; /* Centrar el texto explícitamente */
     }
 
     @media (min-width: 768px) {
+        .footer {
+            padding: 1.5rem 5rem; /* Más espacio en pantallas grandes */
+        }
+
         .footer-content {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column; /* Mantener el diseño en columna */
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .footer {
+            padding: 1.5rem 10rem; /* Márgenes más amplios en pantallas grandes */
         }
     }
 </style>
 
-<footer class="footer ">
+<footer class="footer">
     <div class="footer-content">
-
         <!-- Derechos de autor -->
         <p class="footer-rights">
             © 2024 Recorre Chile. Todos los derechos reservados.
         </p>
-
-
     </div>
 </footer>
