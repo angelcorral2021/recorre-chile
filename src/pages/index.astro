@@ -3,25 +3,63 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Card from "../components/Card.astro";
 import Footer from "../components/Footer.astro";
-
+import ExchangeRateAndWeather from "../components/ExchangeRateAndWeather.astro";
+import Card1 from "../components/Card1.astro";
 ---
 
 <Layout title="Recorre Chile ctm!">
+	<ExchangeRateAndWeather />
+
 	<main>
 		<Header />
 
 		<h1>Recorre <span class="text-gradient"> Chile</span></h1>
 		<p class="instructions">
 			Bienvenido a Recorre Chile, el sitio web dedicado al turismo
-			emprendedor de nuestro país.
+			emprendedor de nuestro país.<br>
+			Welcome to Recorre Chile, the website dedicated to entrepreneurial tourism in our country.
 		</p>
+
 		<p class="instructions_2">
 			Zona Habilitada VI Region del libertador Bernardo O'higgins
 		</p>
 
-		<img class="mapa" src="/img/Region2.png" alt="">
+		<img class="mapa" src="/img/Region2.png" alt="" />
+
+		<!--
+		<ul role="list" class="link-card-grid">
+			<Card1
+				href="https://docs.astro.build/"
+				title="Documentation"
+				body="Learn how Astro works and explore the official API docs."
+				image="img/tipaume-1.jpg"
+			/>
+			<Card1
+				href="https://docs.astro.build/"
+				title="Documentation"
+				body="Learn how Astro works and explore the official API docs."
+				image="img/tipaume-1.jpg"
+			/>
+			<Card1
+				href="https://docs.astro.build/"
+				title="Documentation"
+				body="Learn how Astro works and explore the official API docs."
+				image="img/tipaume-1.jpg"
+			/>
+			<Card1
+				href="https://docs.astro.build/"
+				title="Documentation"
+				body="Learn how Astro works and explore the official API docs."
+				image="img/tipaume-1.jpg"
+			/>
+		</ul>
+		-->
+		
 
 		<ul role="list" class="link-card-grid">
+
+	
+
 			<Card
 				title="Reserva Tipaume"
 				body="La Reserva es un proyecto de Ecoturismo que cuenta con diversas actividades al aire libre aptas para toda la familia."
@@ -48,7 +86,7 @@ import Footer from "../components/Footer.astro";
 				title="Salinas de Cahuil"
 				body="A sólo 15 km de Pichilemu en el poblado de Cáhuil, región de O'Higgins, llaman la atención unas piscinas rectangulares de tonos rojizos y blancos"
 				href="https://pichilemu.cl/"
-				tags={["Aventura","Cultura"]}
+				tags={["Aventura", "Cultura"]}
 				imageUrl="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/b3/a7/ef/photo3jpg.jpg"
 				facebookUrl="https://web.facebook.com/MuniPichilemu"
 				twitterUrl="https://web.whatsapp.com/"
@@ -88,8 +126,8 @@ import Footer from "../components/Footer.astro";
 				instagramUrl="https://www.instagram.com/granmonticello"
 				whatsappUrl="https://web.whatsapp.com/"
 			/>
-			
-		</ul>
+		</ul> 
+
 		<Footer />
 	</main>
 </Layout>
@@ -97,13 +135,14 @@ import Footer from "../components/Footer.astro";
 <style>
 	main {
 		margin: auto;
-		padding: 2.5rem;
-		width: 1400px;
+		padding: 2.3rem;
+		width: 1600px;
 		max-width: calc(100% - 2rem);
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
 	}
+
 	.astro-a {
 		position: absolute;
 		top: -32px;
@@ -113,6 +152,7 @@ import Footer from "../components/Footer.astro";
 		height: auto;
 		z-index: -1;
 	}
+
 	h1 {
 		font-size: 5rem;
 		font-weight: 700;
@@ -120,6 +160,7 @@ import Footer from "../components/Footer.astro";
 		text-align: center;
 		margin-bottom: 1em;
 	}
+	/*
 	.text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
@@ -127,6 +168,7 @@ import Footer from "../components/Footer.astro";
 		background-size: 300%;
 		background-position: 0%;
 	}
+		*/
 	.instructions {
 		margin-bottom: 2rem;
 		border: 1px solid rgba(var(--accent-light), 25%);
@@ -142,48 +184,57 @@ import Footer from "../components/Footer.astro";
 		padding: 0.5rem;
 		text-align: center; /* Alinea el texto horizontalmente al centro */
 	}
-
+	/*
 	.instructions strong {
 		color: rgb(var(--accent-light));
 	}
+	*/
+
 	.link-card-grid {
 		display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Crea cuatro columnas iguales */
-    gap: 2rem; /* Espaciado entre las tarjetas */
-    padding: 0;
-    list-style: none;
-	margin-top: 4rem
+		grid-template-columns: repeat(
+			4,
+			1fr
+		); /* Crea cuatro columnas iguales */
+		gap: 2rem; /* Espaciado entre las tarjetas */
+		padding: 0;
+		list-style: none;
+		margin-top: 4rem;
 	}
 
 	@media (max-width: 1024px) {
-    .link-card-grid {
-        grid-template-columns: repeat(2, 1fr); /* Dos tarjetas por fila en pantallas medianas */
-    }
-}
+		.link-card-grid {
+			grid-template-columns: repeat(
+				2,
+				1fr
+			); /* Dos tarjetas por fila en pantallas medianas */
+		}
+	}
 
-@media (max-width: 768px) {
-    .link-card-grid {
-        grid-template-columns: repeat(1, 1fr); /* Una tarjeta por fila en pantallas pequeñas */
-    }
-}
+	@media (max-width: 768px) {
+		.link-card-grid {
+			grid-template-columns: repeat(
+				1,
+				1fr
+			); /* Una tarjeta por fila en pantallas pequeñas */
+		}
+	}
 
-.mapa {
-    width: 60%;  /* Hace que la imagen ocupe todo el ancho del contenedor */
-    max-width: 900px;  /* Limita el tamaño máximo de la imagen a 1200px */
-    height: auto;  /* Mantiene la proporción de la imagen */
-    object-fit: cover;  /* Asegura que la imagen se recorte adecuadamente si es necesario */
-    border-radius: 8px;  /* Agrega bordes redondeados a la imagen */
-   
-    margin: 1rem auto;  /* Centra la imagen y le da un margen superior e inferior */
-    display: block;  /* Hace que la imagen se comporte como un bloque */
-}
+	.mapa {
+		width: 60%; /* Hace que la imagen ocupe todo el ancho del contenedor */
+		max-width: 900px; /* Limita el tamaño máximo de la imagen a 1200px */
+		height: auto; /* Mantiene la proporción de la imagen */
+		object-fit: cover; /* Asegura que la imagen se recorte adecuadamente si es necesario */
+		border-radius: 8px; /* Agrega bordes redondeados a la imagen */
+		margin: 1rem auto; /* Centra la imagen y le da un margen superior e inferior */
+		display: block; /* Hace que la imagen se comporte como un bloque */
+	}
 
-@media (max-width: 768px) {
-    .mapa {
-        width: 100%;  /* Hace que la imagen ocupe todo el ancho en pantallas pequeñas */
-        max-width: 100%;  /* Asegura que no exceda el ancho de la pantalla */
-        height: auto;  /* Mantiene la proporción de la imagen */
-    }
-}
-
+	@media (max-width: 768px) {
+		.mapa {
+			width: 100%; /* Hace que la imagen ocupe todo el ancho en pantallas pequeñas */
+			max-width: 100%; /* Asegura que no exceda el ancho de la pantalla */
+			height: auto; /* Mantiene la proporción de la imagen */
+		}
+	}
 </style>

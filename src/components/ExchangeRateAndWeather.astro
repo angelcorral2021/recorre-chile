@@ -1,0 +1,122 @@
+---
+const exchangeApiKey = import.meta.env.EXCHANGERATE_API_KEY;
+const weatherApiKey = import.meta.env.OPENWEATHER_API_KEY;
+
+const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Santiago,CL&units=metric&lang=es&appid=${weatherApiKey}`;
+const exchangeApiUrl = `https://v6.exchangerate-api.com/v6/${exchangeApiKey}/latest/CLP`; // Moneda base CLP
+
+let exchangeRate = null;
+let weatherData = null;
+
+try {
+    // Llamadas API
+    const exchangeResponse = await fetch(exchangeApiUrl);
+    const exchangeJson = await exchangeResponse.json();
+    if (exchangeJson.result === "success" && exchangeJson.conversion_rates) {
+        exchangeRate = (1 / exchangeJson.conversion_rates.USD).toFixed(2); // Invertir la tasa de cambio CLP a USD
+    } else {
+        console.error("Error al obtener la tasa de cambio.");
+    }
+
+    const weatherResponse = await fetch(weatherApiUrl);
+    const weatherJson = await weatherResponse.json();
+    if (weatherJson.main && weatherJson.weather && weatherJson.weather[0]) {
+        weatherData = {
+            temp: weatherJson.main.temp,
+            description: weatherJson.weather[0].description,
+        };
+    } else {
+        console.error("Error al obtener los datos del clima.");
+    }
+} catch (error) {
+    console.error("Error en las solicitudes de API:", error);
+}
+---
+
+<div class="info-banner">
+
+    <!-- Tasa de cambio / Exchange Rate -->
+    <p id="exchange-rate">
+        {
+            exchangeRate
+                ? `1 USD = ${exchangeRate} CLP `
+                : "Error cargando la tasa de cambio. / Error loading the exchange rate."
+        }
+    </p>
+
+    <!-- Clima / Weather -->
+    <p id="weather">
+        {
+            weatherData
+                ? `Clima en Santiago: ${weatherData.temp}°C / Weather in Santiago: ${weatherData.temp}°C `
+                : "Error cargando el clima. / Error loading the weather."
+        }
+    </p>
+</div>
+
+
+<style>
+
+/* Contenedor principal del banner */
+.info-banner {
+    background: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.3rem;
+    box-shadow: none;
+    position: absolute; /* Posicionamos el banner de manera absoluta */
+    top: 0;
+    left: 0;
+    right: 0; /* Asegura que el banner ocupe todo el ancho */
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    max-height: 35px; /* Limita la altura del banner */
+    
+
+}
+
+#inf {
+
+font-size: 1rem;
+color: #050505; /* Verde para tasa de cambio */
+}
+/* Párrafos con tasa de cambio y clima */
+
+.info-banner p {
+    font-size: 1rem;
+    margin: 13px 13px 11px 18px;
+    line-height: 1.3;
+    color: #555;
+}
+    
+
+
+/* Tasa de cambio con color verde */
+
+#exchange-rate {
+    font-weight: 500;
+    color: #4caf50; /* Verde para tasa de cambio */
+}
+
+/* Clima con color azul */
+#weather {
+    font-weight: 500;
+    color: #2196f3; /* Azul para clima */
+    margin-right: 26px; /* Separación adicional del clima desde el borde derecho */
+}
+
+/* Para que el texto se vea bien en dispositivos pequeños */
+@media (max-width: 768px) {
+    .info-banner {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    #exchange-rate, #weather {
+        font-size: 0.9rem;
+    }
+}
+
+
+</style>
