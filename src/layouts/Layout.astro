@@ -19,8 +19,15 @@ const { title } = Astro.props;
 		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4254710316974029"
-        crossorigin="anonymous"></script>
+		<script
+			async
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4254710316974029"
+			crossorigin="anonymous"></script>
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+			rel="stylesheet"
+		/>
+		
 	</head>
 	<body>
 		<slot />
@@ -41,7 +48,15 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: "Poppins", sans-serif;
-		background: #13151a;
-		background-color: #1f273b;
+
+		background: linear-gradient(
+				rgba(255, 255, 255, 0.3),
+				rgba(255, 255, 255, 0.3)
+			),
+			url("/img/re6.jpg");
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		filter: brightness(0.9); /* Aumenta el brillo de la imagen */
 	}
 </style>

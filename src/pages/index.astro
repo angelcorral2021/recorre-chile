@@ -3,16 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Card from "../components/Card.astro";
 import Footer from "../components/Footer.astro";
-import ExchangeRateAndWeather from "../components/ExchangeRateAndWeather.astro";
-import Card1 from "../components/Card1.astro";
+
 ---
 
 <Layout title="Recorre Chile ctm!">
-	
-	<!--
-	<ExchangeRateAndWeather />
-	-->
-	
 	
 
 	<main>
@@ -21,8 +15,9 @@ import Card1 from "../components/Card1.astro";
 		<h1>Recorre <span class="text-gradient"> Chile</span></h1>
 		<p class="instructions">
 			Bienvenido a Recorre Chile, el sitio web dedicado al turismo
-			emprendedor de nuestro país.<br>
-			Welcome to Recorre Chile, the website dedicated to entrepreneurial tourism in our country.
+			emprendedor de nuestro país.Si eres emprendedor turistico contactame para publicar tu negocio <span>😉</span>
+
+
 		</p>
 
 		<p class="instructions_2">
@@ -31,80 +26,90 @@ import Card1 from "../components/Card1.astro";
 
 		<img class="mapa" src="/img/Region2.png" alt="" />
 
-		
-		
-
 		<ul role="list" class="link-card-grid">
-
-	
-
+			
 			<Card
+				image="/img/tipaume-1.jpg"
 				title="Reserva Tipaume"
-				body="La Reserva es un proyecto de Ecoturismo que cuenta con diversas actividades al aire libre aptas para toda la familia."
-				href="https://www.reservatipaume.cl/"
-				tags={["Aventura", "Trekking"]}
-				imageUrl="/img/tipaume-1.jpg"
-				facebookUrl="https://web.facebook.com/tipaumereserva"
-				twitterUrl="reservatipaume@gmail.com"
-				instagramUrl="https://www.instagram.com/reservatipaume/"
-				whatsappUrl="https://web.whatsapp.com/"
+				description="La Reserva es un proyecto de Ecoturismo que cuenta con diversas actividades al aire libre aptas para toda la familia."
+				socialLinks={{
+					facebook: "https://web.facebook.com/tipaumereserva",
+					twitter: "https://www.reservatipaume.cl/",
+					instagram: "https://www.instagram.com/reservatipaume/",
+				}}
 			/>
 			<Card
+				image="/img/museo.jpg"
 				title="Museo Colchagua"
-				body="El Museo de Colchagua es un museo chileno ubicado en la comuna de Santa Cruz, en la Región del Libertador Bernardo O'Higgins. Es una institución de carácter privado, administrado por la Fundación Cardoen."
-				href="https://www.museocolchagua.cl/"
-				tags={["Historia", "Cultura"]}
-				imageUrl="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/3d/e2/cb/20181027-182337-largejpg.jpg"
-				facebookUrl="https://web.facebook.com/profile.php?id=61566471796796"
-				twitterUrl="https://web.whatsapp.com/"
-				instagramUrl="https://www.instagram.com/museocolchagua"
-				whatsappUrl="https://web.whatsapp.com/"
+				description="El Museo de Colchagua es un museo chileno ubicado en la comuna de Santa Cruz, en la Región del Libertador Bernardo O'Higgins. Es una institución de carácter privado, administrado por la Fundación Cardoen."
+				socialLinks={{
+					facebook: "https://web.facebook.com/profile.php?id=61566471796796",
+					twitter: "https://www.museocolchagua.cl/",
+					instagram: "https://www.instagram.com/museocolchagua",
+				}}
 			/>
 			<Card
+				image="/img/salinas.jpg"
 				title="Salinas de Cahuil"
-				body="A sólo 15 km de Pichilemu en el poblado de Cáhuil, región de O'Higgins, llaman la atención unas piscinas rectangulares de tonos rojizos y blancos"
-				href="https://pichilemu.cl/"
-				tags={["Aventura", "Cultura"]}
-				imageUrl="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/b3/a7/ef/photo3jpg.jpg"
-				facebookUrl="https://web.facebook.com/MuniPichilemu"
-				twitterUrl="https://web.whatsapp.com/"
-				instagramUrl="https://www.instagram.com/muni_pichilemu"
-				whatsappUrl="https://web.whatsapp.com/"
+				description="A sólo 15 km de Pichilemu en el poblado de Cáhuil, región de O'Higgins, llaman la atención unas piscinas rectangulares de tonos rojizos y blancos"
+				socialLinks={{
+					facebook: "https://web.facebook.com/MuniPichilemu",
+					twitter: "https://pichilemu.cl/",
+					instagram: "https://www.instagram.com/muni_pichilemu",
+				}}
 			/>
 			<Card
+				image="/img/cipreses.jpg"
 				title="Reserva Río Los Cipreses"
-				body="Reserva nacional Rio cipreses es un parque nacional que esta ubicado a 45 minutos desde Rancagua pasando por Coya hacia la cordillera de los andes."
-				href="https://www.conaf.cl/parque_nacionales/reserva-nacional-rio-de-los-cipreses/"
-				tags={["Aventura", "Historia", "Cultura"]}
-				imageUrl="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/5d/36/3b/fin-del-sendero-carrazal.jpg"
-				facebookUrl="https://web.facebook.com/CONAF"
-				twitterUrl="https://web.whatsapp.com/"
-				instagramUrl="https://www.instagram.com/explore/locations/272350533/reserva-nacional-rio-los-cipreses/"
-				whatsappUrl="https://web.whatsapp.com/"
+				description="Reserva nacional Rio cipreses es un parque nacional que esta ubicado a 45 minutos desde Rancagua pasando por Coya hacia la cordillera de los andes."
+				socialLinks={{
+					facebook: "https://web.facebook.com/CONAF",
+					twitter: "https://www.conaf.cl/parque_nacionales/reserva-nacional-rio-de-los-cipreses/",
+					instagram: "https://www.instagram.com/explore/locations/272350533/reserva-nacional-rio-los-cipreses/",
+				}}
 			/>
 			<Card
+				image="/img/safari.jpg"
 				title="Parque Safari"
-				body="Vive una experiencia inolvidable, en las habitaciones familiares del Hotel Safari Lodge"
-				href="https://www.parquesafari.cl/"
-				tags={["Aventura"]}
-				imageUrl="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/a4/0e/6b/caption.jpg"
-				facebookUrl="https://web.facebook.com/parquesafari"
-				twitterUrl="https://web.whatsapp.com/"
-				instagramUrl="https://www.instagram.com/parquesafari"
-				whatsappUrl="https://web.whatsapp.com/"
+				description="Vive una experiencia inolvidable, en las habitaciones familiares del Hotel Safari Lodge"
+				socialLinks={{
+					facebook: "https://web.facebook.com/parquesafari",
+					twitter: "https://www.parquesafari.cl/",
+					instagram: "https://www.instagram.com/parquesafari",
+				}}
 			/>
 			<Card
+				image="/img/Monticello.jpg"
 				title="Monticello Grand Casino"
-				body="Monticello, ​ anteriormente llamado Monticello Grand Casino y Sun Monticello, ​ es un complejo que incluye un casino de juego, un hotel, un estadio cubierto de eventos multipropósito"
-				href="https://monticello.dreams.cl/"
-				tags={["Diversión", "Casinos"]}
-				imageUrl="https://g3newswire.com/wp-content/uploads/2013/01/Monticello.jpg"
-				facebookUrl="https://web.facebook.com/p/Monticello-Grand-Casino-100064496329907"
-				twitterUrl="https://web.whatsapp.com/"
-				instagramUrl="https://www.instagram.com/granmonticello"
-				whatsappUrl="https://web.whatsapp.com/"
+				description="Monticello, ​ anteriormente llamado Monticello Grand Casino y Sun Monticello, ​ es un complejo que incluye un casino de juego, un hotel, un estadio cubierto de eventos multipropósito"
+				socialLinks={{
+					facebook: "https://web.facebook.com/p/Monticello-Grand-Casino-100064496329907",
+					twitter: "https://monticello.dreams.cl/",
+					instagram: "https://www.instagram.com/granmonticello",
+				}}
 			/>
-		</ul> 
+			<Card
+				image="/img/poqui.jpg"
+				title="Cerro Poqui"
+				description="El Santuario de la Naturaleza Cerro Poqui es un área privada protegida ubicada en la comuna de Coltauco, Región de O’Higgins."
+				socialLinks={{
+					facebook: "https://web.facebook.com/Santuario-de-la-Naturaleza-Cerro-Poqui-110371490483700?_rdc=1&_rdr#",
+					twitter: "https://santuariocerropoqui.cl/",
+					instagram: "https://www.instagram.com/santuariocerropoqui/",
+				}}
+			/>
+			<Card
+				image="/img/seweel.jpg"
+				title="Sewell"
+				description="Sewell es una ciudad minera deshabitada, ubicada en la cordillera de los Andes. Actualmente pertenece a la comuna de Machalí, y está ubicada a 150 km al sur de Santiago"
+				socialLinks={{
+					facebook: "https://web.facebook.com/pages/Fundacion-Sewell/1421869351422622?locale=es",
+					twitter: "https://www.fundacionsewell.org/",
+					instagram: "https://www.instagram.com/fundacionsewell/",
+				}}
+			/>
+			
+		</ul>
 
 		<Footer />
 	</main>
@@ -113,7 +118,7 @@ import Card1 from "../components/Card1.astro";
 <style>
 	main {
 		margin: auto;
-		padding: 2.3rem;
+		padding: 1rem;
 		width: 1600px;
 		max-width: calc(100% - 2rem);
 		color: white;
@@ -121,6 +126,13 @@ import Card1 from "../components/Card1.astro";
 		line-height: 1.6;
 	}
 
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 300%;
+		background-position: 0%;
+	}
 	.astro-a {
 		position: absolute;
 		top: -32px;
@@ -138,15 +150,7 @@ import Card1 from "../components/Card1.astro";
 		text-align: center;
 		margin-bottom: 1em;
 	}
-	/*
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 300%;
-		background-position: 0%;
-	}
-		*/
+	
 	.instructions {
 		margin-bottom: 2rem;
 		border: 1px solid rgba(var(--accent-light), 25%);
@@ -162,22 +166,15 @@ import Card1 from "../components/Card1.astro";
 		padding: 0.5rem;
 		text-align: center; /* Alinea el texto horizontalmente al centro */
 	}
-	/*
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	*/
+	
 
 	.link-card-grid {
 		display: grid;
-		grid-template-columns: repeat(
-			4,
-			1fr
-		); /* Crea cuatro columnas iguales */
-		gap: 2rem; /* Espaciado entre las tarjetas */
+		grid-template-columns: repeat(4, 1fr); /* Máximo 3 tarjetas por fila */
+		gap: 1rem; /* Espaciado entre las tarjetas */
 		padding: 0;
 		list-style: none;
-		margin-top: 4rem;
+		margin-top: 6rem;
 	}
 
 	@media (max-width: 1024px) {
@@ -206,13 +203,5 @@ import Card1 from "../components/Card1.astro";
 		border-radius: 8px; /* Agrega bordes redondeados a la imagen */
 		margin: 1rem auto; /* Centra la imagen y le da un margen superior e inferior */
 		display: block; /* Hace que la imagen se comporte como un bloque */
-	}
-
-	@media (max-width: 768px) {
-		.mapa {
-			width: 100%; /* Hace que la imagen ocupe todo el ancho en pantallas pequeñas */
-			max-width: 100%; /* Asegura que no exceda el ancho de la pantalla */
-			height: auto; /* Mantiene la proporción de la imagen */
-		}
 	}
 </style>
